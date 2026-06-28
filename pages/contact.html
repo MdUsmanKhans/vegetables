@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — SabziMandi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .contact-hero {
+      background: var(--ink);
+      padding: 140px 80px 80px;
+    }
+    .contact-hero .eyebrow { color: var(--sage); margin-bottom: 14px; display: block; }
+    .contact-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+    .contact-hero p { color: rgba(255,255,255,0.5); font-size: 1rem; }
+
+    /* ── LAYOUT ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 0;
+      min-height: 70vh;
+    }
+    .contact-info {
+      background: var(--forest);
+      padding: 72px 56px;
+      display: flex; flex-direction: column; gap: 40px;
+    }
+    .contact-info-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .contact-info p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.7; }
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px;
+      background: rgba(116,198,157,0.12);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail strong {
+      display: block;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-detail a, .contact-detail span {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-detail a:hover { color: var(--sage); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.83rem; }
+    .hours-row span:first-child { color: rgba(255,255,255,0.45); }
+    .hours-row span:last-child { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+    /* ── FORM ── */
+    .contact-form-wrap {
+      background: var(--cream);
+      padding: 72px 64px;
+    }
+    .contact-form-wrap h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--fern);
+      box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-success {
+      display: none;
+      background: var(--mist);
+      border: 1.5px solid var(--sage);
+      border-radius: var(--r-md);
+      padding: 20px 24px;
+      color: var(--forest);
+      font-size: 0.92rem;
+      font-weight: 500;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .form-success i { color: var(--sage); font-size: 1.1rem; }
+    .form-success.show { display: flex; }
+
+    @media (max-width: 1024px) {
+      .contact-hero { padding: 140px 40px 64px; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-info { padding: 56px 40px; }
+      .contact-form-wrap { padding: 56px 40px; }
+    }
+    @media (max-width: 768px) {
+      .contact-hero { padding: 130px 24px 56px; }
+      .contact-info { padding: 48px 24px; }
+      .contact-form-wrap { padding: 48px 24px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a class="nav-brand" href="../index.html">
+    <div class="brand-icon">🌿</div>
+    <span class="brand-name">SabziMandi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li>
+      <a href="cart.html" class="cart-badge">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="contact-hero">
+  <span class="eyebrow">Get in touch</span>
+  <h1>We'd love to<br>hear from you.</h1>
+  <p>Whether it's a question, a complaint, or a compliment about your gobi — we're listening.</p>
+</div>
+
+<!-- LAYOUT -->
+<div class="contact-layout">
+
+  <!-- Info -->
+  <div class="contact-info">
+    <div>
+      <div class="contact-info-title">How to reach us</div>
+      <p>Our team replies within 2 hours during working hours. For urgent orders, use WhatsApp.</p>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+      <div>
+        <strong>Phone / WhatsApp</strong>
+        <a href="tel:+923001234567">+92 300 123 4567</a>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+      <div>
+        <strong>Email</strong>
+        <a href="mailto:hello@sabzimandi.pk">hello@sabzimandi.pk</a>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <div>
+        <strong>Offices</strong>
+        <span>Karachi: Block 7, PECHS<br>Lahore: DHA Phase 5</span>
+      </div>
+    </div>
+
+    <div>
+      <strong style="display:block;font-size:0.78rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">Delivery Hours</strong>
+      <div class="hours-grid">
+        <div class="hours-row"><span>Mon–Sat</span><span>8am – 2pm</span></div>
+        <div class="hours-row"><span>Sunday</span><span>9am – 12pm</span></div>
+        <div class="hours-row"><span>Order cut-off</span><span>10am daily</span></div>
+      </div>
+    </div>
+
+    <div class="footer-social" style="margin-top:auto">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="contact-form-wrap">
+    <h2>Send us a message</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="fname" placeholder="Ali Raza" />
+      </div>
+      <div class="form-group">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" id="fphone" placeholder="+92 300 123 4567" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="femail" placeholder="ali@example.com" />
+    </div>
+    <div class="form-group">
+      <label for="fsubject">Subject</label>
+      <select id="fsubject" aria-label="Subject">
+        <option value="">Select a topic</option>
+        <option>Place a bulk order</option>
+        <option>Delivery issue</option>
+        <option>Quality complaint</option>
+        <option>Become a farm partner</option>
+        <option>General inquiry</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="fmessage" placeholder="Tell us what's on your mind…"></textarea>
+    </div>
+    <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="submitForm()">
+      <i class="fa-solid fa-paper-plane"></i> Send Message
+    </button>
+    <div class="form-success" id="formSuccess">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Message sent! We'll get back to you within 2 hours.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">🌿 SabziMandi</div>
+      <p class="footer-tagline">Connecting Pakistan's farms to family kitchens.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"></div>
+    <div class="footer-col"><h5>Contact</h5><ul>
+      <li><a href="tel:+923001234567">+92 300 123 4567</a></li>
+      <li><a href="mailto:hello@sabzimandi.pk">hello@sabzimandi.pk</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 SabziMandi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const msg  = document.getElementById('fmessage').value.trim();
+  if (!name || !msg) { showToast('Please fill in your name and message.'); return; }
+  document.getElementById('formSuccess').classList.add('show');
+  showToast('Message sent! ✉️');
+}
+</script>
+</body>
+</html>

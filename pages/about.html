@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — SabziMandi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* ── PAGE HERO ── */
+    .about-hero {
+      min-height: 70vh;
+      background:
+        linear-gradient(170deg, rgba(27,67,50,0.88), rgba(13,31,20,0.96)),
+        url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1600&q=85') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 80px 80px;
+    }
+    .about-hero .eyebrow { color: var(--sage); margin-bottom: 16px; }
+    .about-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+    .about-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      max-width: 480px;
+      line-height: 1.75;
+    }
+
+    /* ── STORY SECTION ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-grid img {
+      width: 100%;
+      border-radius: var(--r-lg);
+      display: block;
+      box-shadow: var(--shadow-lg);
+    }
+    .story-text .eyebrow { margin-bottom: 12px; display: block; }
+    .story-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .story-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    /* ── VALUES ── */
+    .values-section { background: var(--mist); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: 36px 28px;
+      box-shadow: 0 2px 12px rgba(13,31,20,0.06);
+    }
+    .value-icon {
+      width: 52px; height: 52px;
+      background: var(--mist);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .value-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .team-card {
+      text-align: center;
+    }
+    .team-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--r-lg);
+      object-fit: cover;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .team-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .team-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      background: var(--amber);
+      padding: 64px 80px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stats-band .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stats-band .stat-lbl {
+      font-size: 0.85rem;
+      color: rgba(13,31,20,0.6);
+      margin-top: 8px;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--forest);
+      padding: 72px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cta-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1024px) {
+      .about-hero { padding: 140px 40px 64px; }
+      .story-grid { gap: 48px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .stats-band { padding: 56px 40px; grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .about-hero { padding: 130px 24px 56px; }
+      .story-grid { grid-template-columns: 1fr; gap: 32px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-band { padding: 48px 24px; grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a class="nav-brand" href="../index.html">
+    <div class="brand-icon">🌿</div>
+    <span class="brand-name">SabziMandi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li>
+      <a href="cart.html" class="cart-badge">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <span class="eyebrow">Our Story</span>
+  <h1>We started with one bad onion.</h1>
+  <p>After one too many trips to the supermarket for vegetables that tasted like the plastic they came in, we decided to find a better way.</p>
+</div>
+
+<!-- STORY -->
+<section class="section">
+  <div class="story-grid">
+    <div class="reveal-left">
+      <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?w=900&q=80" alt="Farm partner" loading="lazy" />
+    </div>
+    <div class="story-text reveal-right">
+      <span class="eyebrow">How it started</span>
+      <h2>From a WhatsApp group to a full supply chain</h2>
+      <p>In 2021, two cousins — one in Karachi, one in a village near Okara — started sending vegetables via courier. Friends wanted in. Then their friends. Before long, we had 200 households waiting every week.</p>
+      <p>We built SabziMandi to scale that trust. We visit every farm we partner with. We train our riders on how to handle produce. We test the soil. And we never, ever put a vegetable in cold storage if we can help it.</p>
+      <p>Our promise is simple: if it wasn't worth picking this morning, it doesn't go in your bag.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values-section">
+  <div class="section-header">
+    <div class="section-title-group reveal">
+      <span class="eyebrow">What drives us</span>
+      <h2>The values behind every delivery</h2>
+    </div>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal delay-1">
+      <div class="value-icon">🌱</div>
+      <h3>Radical freshness</h3>
+      <p>We have a six-hour rule. If a vegetable can't reach your kitchen within six hours of harvest, it doesn't leave the farm under our name.</p>
+    </div>
+    <div class="value-card reveal delay-2">
+      <div class="value-icon">🤝</div>
+      <h3>Farmer first</h3>
+      <p>We pay our farmers above market rate — always. They take more care when they know they're being treated fairly. You taste the difference.</p>
+    </div>
+    <div class="value-card reveal delay-3">
+      <div class="value-icon">♻️</div>
+      <h3>Zero waste packaging</h3>
+      <p>All our packaging is reusable cloth or recycled paper. We collect the cloth bags back on the next delivery and wash them ourselves.</p>
+    </div>
+    <div class="value-card reveal delay-1">
+      <div class="value-icon">📍</div>
+      <h3>Full traceability</h3>
+      <p>Every item in your order tells you which farm it came from, when it was picked, and who picked it. Food with a face.</p>
+    </div>
+    <div class="value-card reveal delay-2">
+      <div class="value-icon">🧪</div>
+      <h3>No chemicals</h3>
+      <p>We work only with farms that use natural pest management. Our team visits unannounced to check. No chemicals, period.</p>
+    </div>
+    <div class="value-card reveal delay-3">
+      <div class="value-icon">💬</div>
+      <h3>Honest pricing</h3>
+      <p>Our prices fluctuate with the seasons. We don't hide this — we explain it. You see exactly what you're paying for and why.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="reveal">
+    <div class="stat-num"><span data-count="40">0</span>+</div>
+    <div class="stat-lbl">Partner farms</div>
+  </div>
+  <div class="reveal delay-2">
+    <div class="stat-num"><span data-count="12000">0</span>+</div>
+    <div class="stat-lbl">Families served monthly</div>
+  </div>
+  <div class="reveal delay-3">
+    <div class="stat-num"><span data-count="6">0</span>h</div>
+    <div class="stat-lbl">Average field to door</div>
+  </div>
+  <div class="reveal delay-4">
+    <div class="stat-num"><span data-count="98">0</span>%</div>
+    <div class="stat-lbl">Customer satisfaction</div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-title-group reveal">
+      <span class="eyebrow">The People</span>
+      <h2>Who's behind your vegetables</h2>
+    </div>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal delay-1">
+      <img class="team-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Usman Khan" loading="lazy" />
+      <div class="team-name">Usman Khan</div>
+      <div class="team-role">Co-founder & Operations</div>
+    </div>
+    <div class="team-card reveal delay-2">
+      <img class="team-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Ayesha Raza" loading="lazy" />
+      <div class="team-name">Ayesha Raza</div>
+      <div class="team-role">Co-founder & Farm Relations</div>
+    </div>
+    <div class="team-card reveal delay-3">
+      <img class="team-avatar" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Bilal Ahmed" loading="lazy" />
+      <div class="team-name">Bilal Ahmed</div>
+      <div class="team-role">Head of Logistics</div>
+    </div>
+    <div class="team-card reveal delay-4">
+      <img class="team-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Sana Malik" loading="lazy" />
+      <div class="team-name">Sana Malik</div>
+      <div class="team-role">Quality Assurance</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div style="background:var(--forest);padding:72px 80px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+  <div>
+    <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:#fff;font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin-bottom:8px">
+      Taste the difference yourself.
+    </h2>
+    <p style="color:rgba(255,255,255,0.5);font-size:0.95rem">First order? Use code <strong style="color:var(--sage)">FRESH50</strong> for Rs. 50 off.</p>
+  </div>
+  <a href="shop.html" class="btn btn-primary">
+    <i class="fa-solid fa-basket-shopping"></i> Shop Now
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">🌿 SabziMandi</div>
+      <p class="footer-tagline">Connecting Pakistan's farms to family kitchens.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="SabziMandi on Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="SabziMandi on Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="SabziMandi on Twitter" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"></div>
+    <div class="footer-col"><h5>Contact</h5><ul>
+      <li><a href="tel:+923001234567">+92 300 123 4567</a></li>
+      <li><a href="mailto:hello@sabzimandi.pk">hello@sabzimandi.pk</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 SabziMandi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

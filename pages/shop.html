@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — SabziMandi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .shop-hero {
+      background: var(--forest);
+      padding: 140px 80px 64px;
+    }
+    .shop-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 12px;
+    }
+    .shop-hero p { color: rgba(255,255,255,0.55); font-size: 1rem; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+      background: rgba(253,249,244,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 80px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: var(--r-full);
+      font-size: 0.84rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      margin: 10px 0;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+    }
+
+    /* ── SHOP LAYOUT ── */
+    .shop-layout {
+      padding: 56px 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 128px; }
+    .sidebar-section { margin-bottom: 32px; }
+    .sidebar-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .sidebar-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 0;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .sidebar-option input[type=checkbox] {
+      width: 16px; height: 16px;
+      accent-color: var(--forest);
+      cursor: pointer;
+    }
+    .price-range {
+      width: 100%;
+      accent-color: var(--forest);
+      margin-top: 8px;
+    }
+    .price-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── PRODUCTS ── */
+    .shop-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Product card (same as index but full width) */
+    .product-card {
+      background: #fff;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(13,31,20,0.07);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+      cursor: pointer;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .product-card-img {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--mist);
+    }
+    .product-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .product-card:hover .product-card-img img { transform: scale(1.08); }
+    .product-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+    }
+    .badge-fresh { background: var(--sage); color: var(--forest); }
+    .badge-hot  { background: var(--rust); color: #fff; }
+    .badge-new  { background: var(--amber); color: var(--ink); }
+    .product-card-body {
+      padding: 16px 18px 20px;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+    .product-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .product-origin { font-size: 0.73rem; color: var(--muted); margin-bottom: 8px; }
+    .product-stars {
+      display: flex; gap: 2px;
+      color: var(--amber);
+      font-size: 0.72rem;
+      margin-bottom: 12px;
+    }
+    .product-stars span { font-size: 0.72rem; color: var(--muted); margin-left: 4px; }
+    .product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .product-price sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      vertical-align: baseline;
+    }
+    .add-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .add-btn:hover { background: var(--fern); transform: scale(1.12); }
+
+    /* empty state */
+    .no-results {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+    .no-results i { font-size: 3rem; margin-bottom: 16px; display: block; opacity: 0.3; }
+
+    @media (max-width: 1024px) {
+      .shop-hero { padding: 140px 40px 56px; }
+      .filter-bar { padding: 0 40px; }
+      .shop-layout { padding: 40px 40px; grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .shop-products { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .shop-hero { padding: 130px 24px 48px; }
+      .filter-bar { padding: 0 24px; }
+      .shop-layout { padding: 32px 24px; }
+      .shop-products { grid-template-columns: 1fr 1fr; gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .shop-products { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a class="nav-brand" href="../index.html">
+    <div class="brand-icon">🌿</div>
+    <span class="brand-name">SabziMandi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li>
+      <a href="cart.html" class="cart-badge">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count count">0</span>
+      </a>
+    </li>
+    <li><a href="cart.html" class="nav-cta-btn">Cart</a></li>
+  </ul>
+</nav>
+
+<!-- ── SHOP HERO ── -->
+<div class="shop-hero">
+  <p class="eyebrow" style="color:var(--sage);margin-bottom:14px">Browse our selection</p>
+  <h1>The Market</h1>
+  <p>All vegetables. All fresh. All yours.</p>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+  <button class="filter-btn" onclick="filterProducts('root', this)">Root Vegetables</button>
+  <button class="filter-btn" onclick="filterProducts('fruiting', this)">Fruiting Veg</button>
+  <button class="filter-btn" onclick="filterProducts('leafy', this)">Leafy Greens</button>
+  <button class="filter-btn" onclick="filterProducts('seasonal', this)">Seasonal</button>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="shop-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Price Range</div>
+      <input type="range" class="price-range" min="50" max="300" value="300" id="priceRange"
+        aria-label="Price range" title="Price range"
+        oninput="document.getElementById('priceVal').textContent='Rs. '+this.value">
+      <div class="price-labels">
+        <span>Rs. 50</span>
+        <span id="priceVal">Rs. 300</span>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Sort By</div>
+      <label class="sidebar-option">
+        <input type="radio" name="sort" value="popular" checked /> Most Popular
+      </label>
+      <label class="sidebar-option">
+        <input type="radio" name="sort" value="price-asc" /> Price: Low to High
+      </label>
+      <label class="sidebar-option">
+        <input type="radio" name="sort" value="price-desc" /> Price: High to Low
+      </label>
+      <label class="sidebar-option">
+        <input type="radio" name="sort" value="name" /> Name A–Z
+      </label>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Origin</div>
+      <label class="sidebar-option"><input type="checkbox" checked /> Punjab</label>
+      <label class="sidebar-option"><input type="checkbox" checked /> Sindh</label>
+      <label class="sidebar-option"><input type="checkbox" /> KPK</label>
+    </div>
+  </aside>
+
+  <!-- Products grid -->
+  <div class="shop-products" id="productGrid"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">🌿 SabziMandi</div>
+      <p class="footer-tagline">Connecting Pakistan's farms to family kitchens.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"></div>
+    <div class="footer-col"><h5>Contact</h5><ul>
+      <li><a href="tel:+923001234567">+92 300 123 4567</a></li>
+      <li><a href="mailto:hello@sabzimandi.pk">hello@sabzimandi.pk</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 SabziMandi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+const PRODUCTS = [
+  { id:1, name:'Potatoes', price:80, unit:'kg', category:'root', badge:'hot', badgeLabel:'Best Seller', origin:'Okara, Punjab', rating:4, reviews:128, img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&q=80' },
+  { id:2, name:'Tomatoes', price:120, unit:'kg', category:'fruiting', badge:'fresh', badgeLabel:'Fresh Today', origin:'Hyderabad, Sindh', rating:5, reviews:94, img:'https://images.unsplash.com/photo-1582284540020-8acbe03f4924?w=400&q=80' },
+  { id:3, name:'Onions', price:95, unit:'kg', category:'root', badge:null, origin:'Larkana, Sindh', rating:4, reviews:76, img:'https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80' },
+  { id:4, name:'Lady Finger', price:110, unit:'kg', category:'seasonal', badge:'new', badgeLabel:'Seasonal', origin:'Multan, Punjab', rating:5, reviews:52, img:'https://images.unsplash.com/photo-1628773822503-930a7eaecf80?w=400&q=80' },
+  { id:5, name:'Cucumbers', price:70, unit:'kg', category:'fruiting', badge:null, origin:'Sukkur, Sindh', rating:4, reviews:41, img:'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=400&q=80' },
+  { id:6, name:'Cauliflower', price:90, unit:'piece', category:'leafy', badge:null, origin:'Faisalabad, Punjab', rating:5, reviews:38, img:'https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=400&q=80' },
+  { id:7, name:'Capsicum', price:150, unit:'kg', category:'fruiting', badge:'new', badgeLabel:'Colourful Mix', origin:'Lahore, Punjab', rating:4, reviews:29, img:'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80' },
+  { id:8, name:'Brinjal', price:100, unit:'kg', category:'fruiting', badge:null, origin:'Nawabshah, Sindh', rating:5, reviews:61, img:'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&q=80' },
+  { id:9, name:'Spinach', price:60, unit:'bunch', category:'leafy', badge:'fresh', badgeLabel:'Fresh Today', origin:'Sahiwal, Punjab', rating:4, reviews:33, img:'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80' },
+  { id:10, name:'Carrots', price:85, unit:'kg', category:'root', badge:null, origin:'Kallar Kahar, Punjab', rating:4, reviews:47, img:'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&q=80' },
+  { id:11, name:'Garlic', price:200, unit:'kg', category:'root', badge:'hot', badgeLabel:'Popular', origin:'Sindh', rating:5, reviews:88, img:'https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?w=400&q=80' },
+  { id:12, name:'Bitter Gourd', price:120, unit:'kg', category:'seasonal', badge:null, origin:'Punjab', rating:4, reviews:21, img:'https://images.unsplash.com/photo-1596030116327-e14a91a0571c?w=400&q=80' },
+];
+
+let activeFilter = 'all';
+
+function starsHTML(rating) {
+  return Array.from({length:5},(_,i) =>
+    `<i class="${i < rating ? 'fa-solid' : 'fa-regular'} fa-star"></i>`
+  ).join('');
+}
+
+function renderCard(p, delay) {
+  return `
+  <div class="product-card reveal" style="transition-delay:${delay}s" data-category="${p.category}">
+    <div class="product-card-img">
+      <img src="${p.img}" alt="${p.name}" loading="lazy" />
+      ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badgeLabel}</span>` : ''}
+    </div>
+    <div class="product-card-body">
+      <h3 class="product-name">${p.name}</h3>
+      <p class="product-origin">🌍 ${p.origin}</p>
+      <div class="product-stars">${starsHTML(p.rating)}<span>(${p.reviews})</span></div>
+      <div class="product-footer">
+        <div class="product-price">Rs. ${p.price} <sub>/ ${p.unit}</sub></div>
+        <button class="add-btn" onclick="addToCart('${p.name}', ${p.price}, '${p.img}')">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderProducts(filter) {
+  const grid = document.getElementById('productGrid');
+  const filtered = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results"><i class="fa-solid fa-magnifying-glass"></i><p>No vegetables found in this category.</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map((p,i) => renderCard(p, i*0.07)).join('');
+  // trigger reveal
+  requestAnimationFrame(() => {
+    document.querySelectorAll('#productGrid .reveal').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 50);
+    });
+  });
+}
+
+function filterProducts(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+renderProducts('all');
+</script>
+</body>
+</html>
