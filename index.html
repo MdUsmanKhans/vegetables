@@ -1,502 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SabziMandi — Farm Fresh Vegetables</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <section><div class="hero">
-        <nav>
-            <a href="#">Home</a>
-            <a href="#items">Items</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <h1>Fresh Vegetables</h1>
-        <h2>Eat healthy stay healthy</h2>
-        <button><a href="shop/shop.html">Shop now</a></button>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <div class="brand-icon">🌿</div>
+    <span class="brand-name">SabziMandi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/shop.html">Shop</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+    <li>
+      <a href="pages/cart.html" class="cart-badge">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count count">0</span>
+      </a>
+    </li>
+    <li><a href="pages/shop.html" class="nav-cta-btn">Order Now</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display='flex'">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-parallax"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-pill">
+    <div class="dot"></div>
+    Harvested this morning in Sindh
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow">Farm to table · Karachi & Lahore</p>
+    <h1 class="hero-title">
+      The <em>freshest</em><br>sabzi in<br>your city.
+    </h1>
+    <p class="hero-sub">Handpicked every morning. Delivered before lunch. Zero cold storage, zero compromise.</p>
+    <div class="hero-actions">
+      <a href="pages/shop.html" class="btn btn-primary">
+        <i class="fa-solid fa-basket-shopping"></i> Shop Now
+      </a>
+      <a href="pages/about.html" class="btn btn-ghost">
+        <i class="fa-solid fa-leaf"></i> Our Story
+      </a>
     </div>
-    <div class="heading">
-        <header><h4 id="items">Bhai kilo m nhi ha jitna hat m ay utha lo</h4></header>
-    </div>
-   <!-- shop items -->
-   <div class="items">
-    <div class="box">
-        <img src="image/Potatoes.jpg" alt="">
-        <h3>Potatoes</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/tomato.jpg" alt="">
-        <h3>Tomato</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        
-        <img src="image/onion.jpg" alt="">
-        <h3>Onion</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/lady.jpg" alt="">
-        <h3>Lady finger</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/cucumbers.jpg" alt="">
-        <h3>cucumbers</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Cauliflower.jpg" alt="">
-        <h3>Cauliflower</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Capsicum.jpg" alt="">
-        <h3>Capsicum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/brinjal.jpg" alt="">
-        <h3>Brinjal</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Potatoes.jpg" alt="">
-        <h3>Potatoes</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/tomato.jpg" alt="">
-        <h3>Tomato</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        
-        <img src="image/onion.jpg" alt="">
-        <h3>Onion</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/lady.jpg" alt="">
-        <h3>Lady finger</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/cucumbers.jpg" alt="">
-        <h3>cucumbers</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Cauliflower.jpg" alt="">
-        <h3>Cauliflower</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Capsicum.jpg" alt="">
-        <h3>Capsicum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/brinjal.jpg" alt="">
-        <h3>Brinjal</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Potatoes.jpg" alt="">
-        <h3>Potatoes</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/tomato.jpg" alt="">
-        <h3>Tomato</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        
-        <img src="image/onion.jpg" alt="">
-        <h3>Onion</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/lady.jpg" alt="">
-        <h3>Lady finger</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/cucumbers.jpg" alt="">
-        <h3>cucumbers</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Cauliflower.jpg" alt="">
-        <h3>Cauliflower</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Capsicum.jpg" alt="">
-        <h3>Capsicum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/brinjal.jpg" alt="">
-        <h3>Brinjal</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Potatoes.jpg" alt="">
-        <h3>Potatoes</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/tomato.jpg" alt="">
-        <h3>Tomato</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        
-        <img src="image/onion.jpg" alt="">
-        <h3>Onion</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/lady.jpg" alt="">
-        <h3>Lady finger</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/cucumbers.jpg" alt="">
-        <h3>cucumbers</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Cauliflower.jpg" alt="">
-        <h3>Cauliflower</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/Capsicum.jpg" alt="">
-        <h3>Capsicum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-    </div>
-    <div class="box">
-        <img src="image/brinjal.jpg" alt="">
-        <h3>Brinjal</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, voluptas? Quis quasi debitis.</p>
-        <h6>Rs.100</h6>
-        <ul>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-        </ul>
-        <button class="buy">Buy now</button>
-        
-    </div>
-    <div class="footer">
-        <div class="footer-box">
-            <div class="social-media">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div class="copyright">
-                <label>Copyright &copy; 2024</label>
-            </div>
-            
-         
-        </div>
-        <div class="last">
-            </div>
-    </div>
-   </div>
-   
+  </div>
 </section>
- 
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust">
+  <div class="trust-item reveal delay-1">
+    <i class="fa-solid fa-truck-fast"></i>
+    <div class="trust-item-text">
+      <strong>Same-day delivery</strong>
+      <span>Order before 10am</span>
+    </div>
+  </div>
+  <div class="trust-item reveal delay-2">
+    <i class="fa-solid fa-seedling"></i>
+    <div class="trust-item-text">
+      <strong>100% farm fresh</strong>
+      <span>No cold storage ever</span>
+    </div>
+  </div>
+  <div class="trust-item reveal delay-3">
+    <i class="fa-solid fa-shield-halved"></i>
+    <div class="trust-item-text">
+      <strong>Freshness guaranteed</strong>
+      <span>Full refund if not satisfied</span>
+    </div>
+  </div>
+  <div class="trust-item reveal delay-4">
+    <i class="fa-solid fa-wheat-awn"></i>
+    <div class="trust-item-text">
+      <strong>40+ partner farms</strong>
+      <span>Across Punjab & Sindh</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURED PRODUCTS ── -->
+<section class="section products-section" id="items">
+  <div class="section-header">
+    <div class="section-title-group reveal">
+      <span class="eyebrow">Today's Harvest</span>
+      <h2>Fresh from the field,<br>ready for your kitchen</h2>
+    </div>
+    <a href="pages/shop.html" class="btn btn-dark reveal">
+      View All <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="products-grid" data-stagger>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&q=80" alt="Potatoes" loading="lazy" />
+        <span class="product-badge badge-hot">Best Seller</span>
+      </div>
+      <div class="product-card-body">
+        <h3 class="product-name">Potatoes</h3>
+        <p class="product-origin">🌍 Okara, Punjab</p>
+        <div class="product-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(128)</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">Rs. 80 <sub>/ kg</sub></div>
+          <button type="button" class="add-btn" onclick="addToCart('Potatoes', 80, '')" aria-label="Add Potatoes to cart">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1582284540020-8acbe03f4924?w=500&q=80" alt="Tomatoes" loading="lazy" />
+        <span class="product-badge badge-fresh">Fresh Today</span>
+      </div>
+      <div class="product-card-body">
+        <h3 class="product-name">Tomatoes</h3>
+        <p class="product-origin">🌍 Hyderabad, Sindh</p>
+        <div class="product-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(94)</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">Rs. 120 <sub>/ kg</sub></div>
+          <button type="button" class="add-btn" onclick="addToCart('Tomatoes', 120, '')" aria-label="Add Tomatoes to cart">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1508747703725-719777637510?w=500&q=80" alt="Onions" loading="lazy" />
+      </div>
+      <div class="product-card-body">
+        <h3 class="product-name">Onions</h3>
+        <p class="product-origin">🌍 Larkana, Sindh</p>
+        <div class="product-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(76)</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">Rs. 95 <sub>/ kg</sub></div>
+          <button type="button" class="add-btn" onclick="addToCart('Onions', 95, '')" aria-label="Add Onions to cart">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1628773822503-930a7eaecf80?w=500&q=80" alt="Lady Finger" loading="lazy" />
+        <span class="product-badge badge-new">Seasonal</span>
+      </div>
+      <div class="product-card-body">
+        <h3 class="product-name">Lady Finger</h3>
+        <p class="product-origin">🌍 Multan, Punjab</p>
+        <div class="product-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(52)</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">Rs. 110 <sub>/ kg</sub></div>
+          <button type="button" class="add-btn" onclick="addToCart('Lady Finger', 110, '')" aria-label="Add Lady Finger to cart">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CATEGORIES ── -->
+<section class="section-sm categories-section">
+  <div class="section-header">
+    <div class="section-title-group reveal">
+      <span class="eyebrow">Browse by Type</span>
+      <h2>What are you cooking today?</h2>
+    </div>
+  </div>
+  <div class="categories-grid">
+    <div class="category-card large reveal">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Root Vegetables" loading="lazy" />
+      <div class="category-overlay">
+        <p class="category-label">Root Vegetables</p>
+        <p class="category-count">Potatoes, Onions, Carrots & more</p>
+      </div>
+    </div>
+    <div class="category-card reveal delay-1">
+      <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&q=80" alt="Capsicum" loading="lazy" />
+      <div class="category-overlay">
+        <p class="category-label">Bell Peppers</p>
+        <p class="category-count">3 varieties available</p>
+      </div>
+    </div>
+    <div class="category-card reveal delay-2">
+      <img src="https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=600&q=80" alt="Cauliflower" loading="lazy" />
+      <div class="category-overlay">
+        <p class="category-label">Greens & Whites</p>
+        <p class="category-count">Cauliflower, Cucumbers & more</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT BAND ── -->
+<section class="about-band" id="about">
+  <div class="about-band-img reveal-left">
+    <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?w=900&q=80" alt="Farmer" loading="lazy" />
+  </div>
+  <div class="about-band-content reveal-right">
+    <span class="eyebrow">Why SabziMandi</span>
+    <h2>Grown with care.<br>Delivered with honesty.</h2>
+    <p>We were tired of buying wilted vegetables that had been sitting in cold storage for days. We built direct relationships with small farms so their produce reaches your kitchen within hours of harvest — not days.</p>
+    <div class="stats-row">
+      <div>
+        <div class="stat-num"><span data-count="40">0</span>+</div>
+        <div class="stat-lbl">Partner farms</div>
+      </div>
+      <div>
+        <div class="stat-num"><span data-count="6">0</span>h</div>
+        <div class="stat-lbl">Field to door</div>
+      </div>
+      <div>
+        <div class="stat-num"><span data-count="12000">0</span>+</div>
+        <div class="stat-lbl">Happy families</div>
+      </div>
+    </div>
+    <a href="pages/about.html" class="btn btn-primary">
+      Read Our Story <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section testimonials-section">
+  <div class="section-header">
+    <div class="section-title-group reveal">
+      <span class="eyebrow">Customer Love</span>
+      <h2>What families say about us</h2>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal delay-1">
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <p class="testi-quote">"The tomatoes arrived so fresh I thought they were from our old village garden. My chai gosht tasted completely different. Never going back to the supermarket."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <div class="testi-name">Sana Mirza</div>
+          <div class="testi-loc">Gulshan-e-Iqbal, Karachi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal delay-2">
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <p class="testi-quote">"I run a dhaba and used to spend every morning at the market. Now I order on WhatsApp and it arrives at 8am. My aloo gobi has never had this much flavour."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <div class="testi-name">Tariq Hussain</div>
+          <div class="testi-loc">Model Town, Lahore</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal delay-3">
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+      </div>
+      <p class="testi-quote">"The brinjal and capsicum were exceptional. My daughter is learning to cook and she said it makes everything so much easier when the sabzi is this good to begin with."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩‍🦳</div>
+        <div>
+          <div class="testi-name">Rukhsana Bibi</div>
+          <div class="testi-loc">F-7, Islamabad</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band reveal">
+  <div>
+    <h2>Your kitchen deserves<br>better vegetables.</h2>
+    <p>Order before 10am. Delivered fresh by lunch.</p>
+  </div>
+  <a href="pages/shop.html" class="btn btn-dark">
+    <i class="fa-solid fa-basket-shopping"></i> Start Ordering
+  </a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">🌿 SabziMandi</div>
+      <p class="footer-tagline">Connecting Pakistan's farms to family kitchens. Harvested fresh, delivered honest.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/shop.html">Shop</a></li>
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Vegetables</h5>
+      <ul>
+        <li><a href="pages/shop.html">Root Veg</a></li>
+        <li><a href="pages/shop.html">Leafy Greens</a></li>
+        <li><a href="pages/shop.html">Seasonal</a></li>
+        <li><a href="pages/shop.html">All Items</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+923001234567">+92 300 123 4567</a></li>
+        <li><a href="mailto:hello@sabzimandi.pk">hello@sabzimandi.pk</a></li>
+        <li><a href="#">Karachi Office</a></li>
+        <li><a href="#">Lahore Office</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 SabziMandi. All rights reserved.</p>
+    <p>Made with ❤️ for Pakistani kitchens</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
